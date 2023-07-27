@@ -57,13 +57,6 @@
                                 <h6 class="font-weight-medium">Points Obtained</h6>
                                 <h6 class="font-weight-medium cart-total">{{ $cart_total }} Pts</h6>
                             </div>
-                            <div class="d-flex justify-content-between mb-3 pt-1">
-                                <h6 class="font-weight-medium">Order Total</h6>
-                                <td>
-                                    <input type="hidden" name="order_total" class="order_total">
-                                    <h6 class="font-weight-heavy order-total"> {{ $cart_total }}Pts</h6>
-                                </td>
-                            </div>
                         </div>
                         <div class="card-footer border-secondary bg-transparent">
                             <div class="d-flex justify-content-between mt-2">
