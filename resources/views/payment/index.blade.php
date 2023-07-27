@@ -18,7 +18,6 @@
                         <th>No</th>
                         <th>Date</th>
                         <th>Order</th>
-                        <th>Total</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -45,10 +44,6 @@
                     <div class="form-group">
                         <label for="">Date</label>
                         <input type="text" class="form-control" name="date" placeholder="Date" readonly>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Total</label>
-                        <input type="text" class="form-control" name="total" placeholder="Total" readonly>
                     </div>
                     <div class="form-group">
                         <label for="">Status</label>
@@ -92,7 +87,6 @@
                             <td>${index+1}</td>
                             <td>${full_pdate}</td>
                             <td>${val.id_order}</td>
-                            <td>${val.total}</td>
                             <td>${val.status}</td>
                             <td>
                                 <a data-toggle="modal" href="@modal-form" data-id="${val.id}" class="btn btn-warning modal-edit">Edit</a>
