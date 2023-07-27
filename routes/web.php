@@ -68,3 +68,6 @@ Route::post('/add_to_cart', [HomeController::class,'add_to_cart']);
 Route::get('/delete_from_cart/{cart}', [HomeController::class,'delete_from_cart']);
 
 Route::post('/checkout_orders', [HomeController::class,'checkout_orders']);
+Route::post('/payments', [HomeController::class,'payments']);
+
+Route::post('/order_done/{order}', [HomeController::class,'order_done']);
