@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Category;
+use App\Models\Order;
+use App\Models\Payment;
 use App\Models\Product;
 use App\Models\Testimoni;
 use Illuminate\Http\Request;
@@ -60,8 +62,9 @@ class HomeController extends Controller
         $id = DB::table('orders')->insertGetId([
             'member_id'=>$request->member_id,
             'invoice'=> date('ymds'),
-            'order_total'=>$cart_total,
+            'order_total'=> $cart_total,
             'status' => 'Requested',
+            'created_at' => date('Y-m-d H:i:s')
         ]);
 
         for ($i=0; $i < count($request->id_product); $i++) { 
@@ -80,11 +83,31 @@ class HomeController extends Controller
     }
 
     public function checkout() {
-        return view('home.checkout');
+        $orders = Order::where('member_id', Auth::guard('webmember')->user()->id)-> first();
+        return view('home.checkout',compact('orders'));
+    }
+
+    public function payments(Request $request) {
+        Payment::create([
+            'id_order' => $request->id_order,
+            'member_id' => Auth::guard('webmember')->user()->id,
+            'status' => 'AWAITING',
+        ]);
+
+        return redirect('/orders');
     }
 
     public function orders() {
-        return view('home.orders');
+        $orders = Order::where('member_id', Auth::guard('webmember')->user()->id)->get();
+        $payments = Payment::where('member_id', Auth::guard('webmember')->user()->id)->get();
+        return view('home.orders',compact('orders','payments'));
+    }
+
+    public function order_done(Order $order) {
+        $order -> status = 'Done';
+        $order -> save();
+
+        return redirect('/orders');
     }
 
     public function contact() {
