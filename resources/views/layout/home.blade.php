@@ -48,7 +48,7 @@
             </div>
             <div class="navbar-nav ml-auto py-0">
                 @if (Auth::guard('webmember') -> check())
-                <a href="/profile" class="btn border">
+                <a href="/orders" class="btn border">
                     <i class="fas fa-user text-primary"></i>
                     <span>{{ Auth::guard('webmember') -> user()->member_name }}</span>
                 </a>
