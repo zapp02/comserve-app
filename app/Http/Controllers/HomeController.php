@@ -30,7 +30,6 @@ class HomeController extends Controller
     public function add_to_cart(Request $request){
         $input = $request->all();
         Cart::create($input);
-
     }
 
     public function delete_from_cart(Cart $cart){

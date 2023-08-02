@@ -21,25 +21,36 @@
                 <br>
                 <h4 class="font-weight-semi mb-4">{{ number_format($product->obtained)}} Points</h4>
                 <p>Individual or Group (MAX 3 Person).</p>
-                <div class="d-flex mb-3">
+                <div class="period d-flex mb-3">
                     <p class="text-dark font-weight-medium mb-0 mr-3">Period:</p>
                     @php
                     $periods = explode(',',$product->period)
                     @endphp
 
                     @foreach ($periods as $period)
-                    <div class="custom-control custom-radio">
-                        <input type="radio" class="period" id="{{ $period }}" name="period" value="{{ $period }}">
+                    <div class="period custom-control custom-radio">
+                        <input type="radio" id="{{ $period }}" name="periods" value="{{ $period }}" class="period">
                         <label for="{{ $period }}">{{ $period }}</label>
                     </div>
                     @endforeach
                 </div>
-                <div class="d-flex align-items-center mb-4 pt-2">
+                <div class=" quantity d-flex align-items-center mb-4 pt-2">
                     <p class="text-dark font-weight-medium mb-0 mr-3">Quantity:</p>
                     <div class="input-group quantity mr-3" style="width: 130px;">
-                        <input id="quantity" name="quantity" type="number" step="1" min="0" class="input quantity form-control bg-secondary text-center" value="1">
+                        <div class="input-group-btn">
+                            <button class="btn btn-primary btn-minus" >
+                            <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                        <input name="quantity" type="number" step="1" min="0" class="input-text text quantity form-control bg-secondary text-center" value="1">
+                        <div class="input-group-btn">
+                            <button class="btn btn-primary btn-plus">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </div>
                     </div>
-                    <a href="#" class="btn btn-primary px-3"><span>Add to Cart</span></a>
+                    <a href="#" class="add-to-cart"><span>Add to Cart</span></a>
+
                 </div>
                 <div class="d-flex pt-2">
                     <p class="text-dark font-weight-medium mb-0 mr-2">Share on:</p>
@@ -143,7 +154,7 @@
                                         <input type="email" class="form-control" id="email">
                                     </div>
                                     <div class="form-group mb-0">
-                                        <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
+                                        <input type="submit" value="Leave Your Review" class="btn btn-primary px-3 review">
                                     </div>
                                 </form>
                             </div>
@@ -169,7 +180,7 @@
 
                 $.ajax({
                     url : '/add_to_cart',
-                    method : 'POST',
+                    method : "POST",
                     headers : {
                         'X-CSRF-TOKEN' : "{{ csrf_token() }}",
                     },
@@ -182,11 +193,11 @@
                         is_checkout,
                     },
                     success : function (data) {
-                        window.location.href = '/cart'
+                        window.location.href = '/data'
                     }
+
                 });
             })
         })
-        
     </script>
 @endpush
