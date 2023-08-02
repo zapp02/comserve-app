@@ -21,7 +21,7 @@
                 <br>
                 <h4 class="font-weight-semi mb-4">{{ number_format($product->obtained)}} Points</h4>
                 <p>Individual or Group (MAX 3 Person).</p>
-                <div class="period d-flex mb-3">
+                <div class="d-flex mb-3">
                     <p class="text-dark font-weight-medium mb-0 mr-3">Period:</p>
                     @php
                     $periods = explode(',',$product->period)
@@ -32,6 +32,7 @@
                         <input type="radio" id="{{ $period }}" name="periods" value="{{ $period }}" class="period">
                         <label for="{{ $period }}">{{ $period }}</label>
                     </div>
+
                     @endforeach
                 </div>
                 <div class=" quantity d-flex align-items-center mb-4 pt-2">
@@ -42,7 +43,7 @@
                             <i class="fa fa-minus"></i>
                             </button>
                         </div>
-                        <input name="quantity" type="number" step="1" min="0" class="input-text text quantity form-control bg-secondary text-center" value="1">
+                        <input name="qty" type="number" step="1" min="0" class="input-text text quantity form-control bg-secondary text-center" value="1">
                         <div class="input-group-btn">
                             <button class="btn btn-primary btn-plus">
                                 <i class="fa fa-plus"></i>
@@ -169,15 +170,18 @@
 
 @push('js')
     <script>
+        
         $(function() {
+            
             $('.add-to-cart').click(function(){
                 member_id = {{ Auth::guard('webmember')->user()->id }}
                 id_product = {{ $product->id }}
-                quantity = $('.quantity').val()
-                period = $('.period').val()
+                quantity = $('input[type=number][name="qty"]').val()
+                period = $('input[name="periods"]:checked').val()
                 total = {{ $product->obtained }}*quantity
                 is_checkout = 0
-
+                
+                
                 $.ajax({
                     url : '/add_to_cart',
                     method : "POST",
@@ -193,7 +197,7 @@
                         is_checkout,
                     },
                     success : function (data) {
-                        window.location.href = '/data'
+                        window.location.href = '/cart'
                     }
 
                 });
