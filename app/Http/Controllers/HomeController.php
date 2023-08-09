@@ -73,6 +73,7 @@ class HomeController extends Controller
                 'quantity' => $request->quantity[$i],
                 'period' => $request->period[$i],
                 'total' => $request->total[$i],
+                'created_at' => date('Y-m-d H:i:s')
             ]);
         }
 
