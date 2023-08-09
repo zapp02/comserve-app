@@ -181,7 +181,7 @@
                 total = {{ $product->obtained }}*quantity
                 is_checkout = 0
                 
-                
+
                 $.ajax({
                     url : '/add_to_cart',
                     method : "POST",

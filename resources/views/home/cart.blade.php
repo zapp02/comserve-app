@@ -38,6 +38,7 @@
                                     <a href="/delete_from_cart/{{ $cart->id }}" class="btn btn-sm btn-primary remove">
                                         <i class="fa fa-times"></i>
                                     </a>
+                                    
                                 </td>
                             </tr>
 

@@ -45,7 +45,7 @@
                         <input type="hidden" name="id_order" value="{{ $orders->id }}">
 
                         <div class="card-header bg-secondary border-1">
-                            <h4 class="font-weight-semi-bold m-0">Payment</h4>
+                            <h4 class="font-weight-semi-bold m-0">Request Activity</h4>
                         </div>
                         <div class="card-body">
                             <br>
