@@ -10,7 +10,7 @@
             </div>
             <div class="col-lg-5">
                 
-                <h2>My Request</h2>
+                <h2>My Payment</h2>
                 <table class="table table-ordered table-hover table-striped">
                     <thead>
                         <th>No</th>
@@ -28,7 +28,7 @@
                     </tbody>
                 </table>
                 <br>
-                <h2>My Orders</h2>
+                <h2>My Request</h2>
                 <table class="table table-ordered table-hover table-striped">
                     <thead>
                         <th>No</th>

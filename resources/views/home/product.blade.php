@@ -50,7 +50,7 @@
                             </button>
                         </div>
                     </div>
-                    <a href="#" class="add-to-cart"><span>Add to Cart</span></a>
+                    <a href="#" class="btn btn-primary px-3 add-to-cart"><span>Add to Cart</span></a>
 
                 </div>
                 <div class="d-flex pt-2">
