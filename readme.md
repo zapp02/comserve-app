@@ -1,7 +1,6 @@
 First Time Installation: 
 1. download and install the dependencies : composer , node.js, php
 2. after all files installed, open cmd. check all the installed files by runnning these command:
-3. run "php artisan key:generate" and make db with the same name with what is needed
     - php -v
     - node -v
     - composer
