@@ -1,7 +1,3 @@
-
-
-3.app used :
-
 First Time Installation:: 
 1. download and install the dependencies : composer , node.js, php
 2. after all files installed, open cmd. check all the installed files by runnning these command:
