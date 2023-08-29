@@ -1,4 +1,4 @@
-First Time Installation:
+First Time Installation: 
 1.download and install the dependencies below
     - composer 'just search for composer setup'
     - node.js
