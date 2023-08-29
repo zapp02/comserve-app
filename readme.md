@@ -9,7 +9,14 @@ First Time Installation:
     - vscode
     - XAMPP
     - postman (only for api test)
-
+4. open the php directory, open the php configuration file. search for extension and make sure these extension uncommented: 
+    - extension=curl
+    - extension=php_fileinfo.dll
+    - extension=mbstring
+    - extension=openssl
+    - extension=pdo_mysql
+    - extension=pgsql
+ 
 how to build: 
 1. download the repo
 2. get ".env.example" and adjust it into your environment (or just ask for the .env file)
