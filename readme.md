@@ -5,7 +5,7 @@ First Time Installation:
     - node -v
     - composer
     - npm -v
-4. app used:
+3. app used:
     - vscode
     - XAMPP
     - postman (only for api test)
