@@ -25,7 +25,6 @@ class ReportController extends Controller
                 SUM(quantity) as total_qty,
                 SUM(total) as pts_given'))
             ->whereRaw("date(orders_details.created_at) >= '$request->from'")
-            ->whereRaw("date(orders_details.updated_at) <= '$request->to'")
             ->groupBy('id_product','product_name','obtained')
             ->get();
 
