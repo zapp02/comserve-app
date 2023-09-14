@@ -43,8 +43,6 @@
                                 <td>{{ $order->updated_at }}</td>
                                 <td>{{ $order->order_total }}</td>
                                 <td>{{ $order->status }}</td>
-                                <td>
-                                </td>
                             </tr>
                         @endforeach
                     </tbody>
