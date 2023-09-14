@@ -17,7 +17,7 @@
                     <tr>
                         <th>No</th>
                         <th>Request Date</th>
-                        <th>Invoice</th>
+                        <th>ID Activity</th>
                         <th>Member</th>
                         <th>Total</th>
                     </tr>
@@ -37,10 +37,15 @@
             function date(date) {
                 var date = new Date(date);
                 var day = date.getDate(); //Date of the month: 2 in our example
-                var month = date.getMonth(); //Month of the Year: 0-based index, so 1 in our example
+                var months = ["January", "February", "March", "April", "May", "June", "July",
+         "August", "September", "October", "November", "December"];
+                var month = months[date.getMonth()]; //Month of the Year: 0-based index, so 1 in our example
                 var year = date.getFullYear();
+                var hours = date.getHours();
+                var minutes = date.getMinutes();
+                var seconds = date.getSeconds();
 
-                return `${day}-${month}-${year}`;
+                return `${day}-${month}-${year} ${hours}:${minutes}:${seconds}`;
             }
 
             const token = localStorage.getItem('token')
@@ -57,7 +62,7 @@
                        row += `
                        <tr>
                             <td>${index+1}</td>
-                            <td>${date(val.created_at)}</td>
+                            <td>${date(val.updated_at)}</td>
                             <td>${val.invoice}</td>
                             <td>${val.member.member_name}</td>
                             <td>${val.order_total}</td>

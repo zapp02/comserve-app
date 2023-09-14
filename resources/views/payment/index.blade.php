@@ -80,7 +80,9 @@
                     let row;
                     data.map(function (val,index) {
                         pdate = new Date(val.created_at)
-                        full_pdate = `${ pdate.getDate() }-${ pdate.getMonth() }-${ pdate.getFullYear() }`
+                        var months = ["January", "February", "March", "April", "May", "June", "July",
+         "August", "September", "October", "November", "December"];
+                        full_pdate = `${ pdate.getDate() }-${ months[pdate.getMonth()] }-${ pdate.getFullYear() }`
 
                        row += `
                        <tr>
@@ -127,8 +129,10 @@
 
             function date(date) {
                 var date = new Date(date);
-                var day = date.getDate(); //Date of the month: 2 in our example
-                var month = date.getMonth(); //Month of the Year: 0-based index, so 1 in our example
+                var day = date.getDate(); //Date of the month
+                var months = ["January", "February", "March", "April", "May", "June", "July",
+         "August", "September", "October", "November", "December"];
+                var month = months[date.getMonth()]; //Month of the Year: 0-based index
                 var year = date.getFullYear();
 
                 return `${day}-${month}-${year}`;

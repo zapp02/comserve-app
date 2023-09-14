@@ -35,20 +35,15 @@
                         <th>Date</th>
                         <th>Request Total</th>
                         <th>Status</th>
-                        <th>Action</th>
                     </thead>
                     <tbody>
                         @foreach ($orders as $index => $order)
                             <tr>
                                 <td>{{ $index+1 }}</td>
-                                <td>{{ $order->created_at }}</td>
+                                <td>{{ $order->updated_at }}</td>
                                 <td>{{ $order->order_total }}</td>
                                 <td>{{ $order->status }}</td>
                                 <td>
-                                    <form action="/order_done/{{ $order->id }}" method="POST">
-                                        @csrf
-                                        <button type="submit" class="btn btn-success">DONE</button>
-                                    </form>
                                 </td>
                             </tr>
                         @endforeach
